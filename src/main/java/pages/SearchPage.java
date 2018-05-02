@@ -10,15 +10,27 @@ import org.openqa.selenium.support.FindBy;
  */
 public class SearchPage extends PageObject {
 
-    @FindBy(id = "search-title")
+    @FindBy(xpath = "//*[@id='search-title']")
     private WebElement searchPageTitle;
+
+
+    @FindBy(xpath = "//input[@type='submit']")
+    private WebElement searchBtn;
 
     public SearchPage(WebDriver driver){
         super(driver);
     }
 
     public String getPageTitle(){
-        return searchPageTitle.getText();
+        String pageTitle = searchPageTitle.getText();
+        return pageTitle;
     }
+
+
+    public void clickSearchBtn(){
+        searchBtn.click();
+    }
+
+
 
 }

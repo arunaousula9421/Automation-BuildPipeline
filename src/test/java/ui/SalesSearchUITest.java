@@ -4,11 +4,9 @@ import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.WithTag;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
-import pages.SearchPage;
 import steps.HomePageUISteps;
 import steps.SearchPageUISteps;
 
@@ -23,7 +21,9 @@ public class SalesSearchUITest {
 
     @Steps
     HomePageUISteps homePageUISteps;
-    SearchPage searchPage;
+
+    @Steps
+    SearchPageUISteps searchPageUISteps;
 
 
     @Test
@@ -31,9 +31,7 @@ public class SalesSearchUITest {
     public void validateSearchPage(){
 
         homePageUISteps.clickSalesCategory();
-
-        Assert.assertEquals("Properties for Sale in Ireland", searchPage.getPageTitle());
-
+        searchPageUISteps.verifySearchPageHeader();
 
     }
 }
