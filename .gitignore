@@ -2,3 +2,4 @@
 Automation-BuildPipeline.iml
 .idea/*
 target/*
+report/*
