@@ -1,0 +1,21 @@
+hub:
+  image: selenium/hub:3.11.0
+  ports:
+    - 4444:4444
+
+
+nodechrome:
+  image: selenium/node-chrome:3.11.0
+  volumes:
+    - /dev/shm:/dev/shm
+  links:
+    - hub
+
+uitests:
+  image: balamaci/ui-tests
+  volumes:
+    - .:/usr/src/app
+    - ~/.m2:/root/.m2
+  links:
+    - hub
+    - nodechrome
