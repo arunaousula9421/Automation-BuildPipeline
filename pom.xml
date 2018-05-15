@@ -33,8 +33,7 @@
                 <family>unix</family>
             </os>
         </activation>
-        <properties>
-        </properties>
+        <properties>src/main/java/resources/driver/chromedriver</properties>
     </profile>
 </profiles>
 
