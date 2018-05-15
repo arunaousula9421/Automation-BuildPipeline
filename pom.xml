@@ -23,6 +23,7 @@
         <serenity.cucumber.version>1.0.15</serenity.cucumber.version>
         <webdriver.driver>chrome</webdriver.driver>
         <webdriver.driver>firefox</webdriver.driver>
+        <chromeDrivers.directory>${project.projectDirectory}/src/main/resources/drivers</chromeDrivers.directory>
     </properties>
 
 <profiles>
@@ -33,7 +34,7 @@
                 <family>unix</family>
             </os>
         </activation>
-        <properties>/src/main/java/resources/driver/chromedriver</properties>
+        <properties>${chromeDrivers.directory}/chromedriver</properties>
     </profile>
 </profiles>
 
