@@ -1,21 +1,19 @@
-hub:
-  image: selenium/hub:3.11.0
+seleniumhub:
+  image: selenium/hub
   ports:
     - 4444:4444
+  environment:
+    - GRID_TIMEOUT=45
+    - GRID_BROWSER_TIMEOUT=90
 
 
-nodechrome:
-  image: selenium/node-chrome:3.11.0
+
+chromenode:
+  image: selenium/node-chrome
+  ports:
+    - 5900
+  links:
+    - seleniumhub:hub
   volumes:
     - /dev/shm:/dev/shm
-  links:
-    - hub
 
-uitests:
-  image: balamaci/ui-tests
-  volumes:
-    - .:/usr/src/app
-    - ~/.m2:/root/.m2
-  links:
-    - hub
-    - nodechrome
