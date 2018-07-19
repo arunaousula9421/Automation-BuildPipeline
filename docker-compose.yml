@@ -6,8 +6,8 @@ jenkins:
   volumes:
     - /Users/arun/Projects/jenkins:/var/jenkins_home
 
-seleniumhub:
-  image: selenium/hub
+selenium-hub:
+  image: selenium/hub:3.13.0-argon
   ports:
     - 4444:4444
   environment:
@@ -17,11 +17,11 @@ seleniumhub:
 
 
 chromenode:
-  image: selenium/node-chrome
+  image: selenium/node-chrome-debug:3.13.0-argon
   ports:
     - 5900:5900
   links:
-    - seleniumhub:hub
+    - selenium-hub:hub
   volumes:
     - /dev/shm:/dev/shm
 
